@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
+{% extends "quizz/basic.html" %}
+{% block base %}
   <head>
     <meta charset="utf-8">
     <title></title>
@@ -10,4 +10,4 @@
 <p>{{total}}</p><br><br>
 <a href="{% url 'index' %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Close</a><br><br>
   </body>
-</html>
+{% endblock %}

@@ -12,4 +12,4 @@ class Quizques(models.Model):
     ans=models.CharField(max_length=50)
     des=models.CharField(max_length=100)
     def __str__(self):
-        return self.subject_name,self.question_no
+        return  '{}/{}'.format(self.subject_name, self.question_no)

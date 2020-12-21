@@ -29,16 +29,14 @@
         </div> -->
 
         <div class="jumbotron">
-          {% if registered %}
-          <h1>thank u</h1>
-          {% else %}
+        
           <h3>Sign up</h3>
           <form method="post">
             {% csrf_token %}
             {{ form.as_p }}
             <input type="submit" name="" value="Register" class="btn btn-primary">
           </form>
-          {% endif %}
+
           <!-- <input type="email" placeholder="Valid email" class="form-control">
           <input type="text" placeholder="Username" class="form-control">
           <input type="password" placeholder="Password (log_in purpose)" class="form-control">

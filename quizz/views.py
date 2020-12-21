@@ -21,19 +21,18 @@ def user_logout(request):
     logout(request)
     return HttpResponseRedirect(reverse('index'))
 def register(request):
-    registered=False;
     if request.method=='POST':
         p=userform(data=request.POST)
         if p.is_valid():
             user=p.save()
             user.set_password(user.password)
             user.save()
-            registered=True
+            return render(request,'quizz/login.html',{})
         else:
             print(p.errors)
     else:
         p=userform()
-    return render(request,'quizz/register.html',{'form':p,'registered':registered})
+    return render(request,'quizz/register.html',{'form':p})
 
 
 def user_login(request):
@@ -65,7 +64,7 @@ r_ans=0
 w_ans=0
 s_id=""
 tot_ques=100
-
+show_time=''
 def qp(request):
     global q_no
     global s_id
@@ -95,20 +94,28 @@ def qp1(request):
     global r_ans
     global w_ans
     global tot_ques
+    global show_time
     if request.method=='POST':
         ans=request.POST.get('q')
+        print("from post")
         if ans:
             q_no+=1
-            an=Quizques.objects.filter(subject_name=s_id,question_no=q_no-1)
-            # print(an[0].ans,"ur choice:",a)
-            if ans==an[0].ans:
-                r_ans+=1
-            else:
-                w_ans+=1
+            try:
+                an=Quizques.objects.filter(subject_name=s_id,question_no=q_no-1)
+                # print(an[0].ans,"ur choice:",a)
+                if ans==an[0].ans:
+                    r_ans+=1
+                else:
+                    w_ans+=1
+            except:
+                return render(request,'quizz/result.html',{'score':r_ans,'total':show_time})
+
     if(q_no<=tot_ques):
+        print("from question")
         quest=Quizques.objects.filter(subject_name=s_id,question_no=q_no)
         return render(request,'quizz/quiz.html',{'question':quest})
     else:
+        print("from answer")
         toc=time.perf_counter()
         total_time=toc-tic
         minu=int(total_time//60)

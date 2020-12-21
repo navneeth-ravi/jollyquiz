@@ -48,17 +48,11 @@ integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7
 				<input type = "radio" name = "q" value = "b" id = "q{{ q.id }}">   b. {{ q.b }}<br><br>
 				<input type = "radio" name = "q" value = "c" id = "q{{ q.id }}">   c. {{ q.c }}<br><br>
 				<input type = "radio" name = "q" value = "d" id = "q{{ q.id }}">   d. {{ q.d }}<br><br>
-        <p>
-        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-          Button with data-target
-        </button>
-      </p>
-      <div class="collapse" id="collapseExample">
-        <div class="card card-body">
-          {{q.ans}}
-        </div>
-      </div>
-      <button type="submit" name="button" onclick="return submit_Answers(ans='{{q.des}}',an='{{q.ans}}')">confirm</button>
+
+      <!-- <button type="submit" name="button" onclick="return submit_Answers(ans='{{q.des}}',an='{{q.ans}}')">confirm</button> -->
+      <button class="btn btn-primary" name="button" onclick="return submit_Answers(ans='{{q.des}}',an='{{q.ans}}')" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+        confirm
+      </button>
       <!-- <input type="submit" value="Next"> -->
     </form>
   </div>

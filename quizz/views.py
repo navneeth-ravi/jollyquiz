@@ -63,7 +63,7 @@ q_no=1
 r_ans=0
 w_ans=0
 s_id=""
-tot_ques=1
+tot_ques=100
 show_time=''
 def qp(request):
     global q_no

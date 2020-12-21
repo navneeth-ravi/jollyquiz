@@ -63,7 +63,7 @@ q_no=1
 r_ans=0
 w_ans=0
 s_id=""
-tot_ques=100
+tot_ques=1
 show_time=''
 def qp(request):
     global q_no
@@ -108,7 +108,7 @@ def qp1(request):
                 else:
                     w_ans+=1
             except:
-                return render(request,'quizz/result.html',{'score':r_ans,'total':show_time})
+                return render(request,'quizz/result.html',{'score':r_ans,'total':tot_ques,'show_time':show_time})
 
     if(q_no<=tot_ques):
         print("from question")
@@ -126,4 +126,4 @@ def qp1(request):
         else:
             minute=minu
         show_time='0'+str(hours)+" hours: "+str(minute)+" minutes: "+str(secs)+" seconds"
-        return render(request,'quizz/result.html',{'score':r_ans,'total':show_time})
+        return render(request,'quizz/result.html',{'score':r_ans,'total':tot_ques,'show_time':show_time})

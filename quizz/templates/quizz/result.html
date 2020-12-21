@@ -5,9 +5,19 @@
     <title></title>
   </head>
   <body>
+    <div class="container">
+
+  <div class="jumbotron">
+
+<center>
 <h1>Results</h1>
-<p>{{score}}</p><br><br>
-<p>{{total}}</p><br><br>
+<p>Your score:{{score}} </p><p>out of:{{total}}</p><br>
+<p>Time Taken: {{show_time}}</p><br><br>
 <a href="{% url 'index' %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Close</a><br><br>
+</center>
+</div>
+
+</div>
+
   </body>
 {% endblock %}

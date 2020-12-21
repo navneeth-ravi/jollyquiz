@@ -100,15 +100,22 @@ def qp1(request):
         print("from post")
         if ans:
             q_no+=1
-            try:
-                an=Quizques.objects.filter(subject_name=s_id,question_no=q_no-1)
+            an=Quizques.objects.filter(subject_name=s_id,question_no=q_no-1)
+            
                 # print(an[0].ans,"ur choice:",a)
-                if ans==an[0].ans:
-                    r_ans+=1
-                else:
-                    w_ans+=1
-            except:
-                return render(request,'quizz/result.html',{'score':r_ans,'total':tot_ques,'show_time':show_time})
+            if ans==an[0].ans:
+                r_ans+=1
+            else:
+                w_ans+=1
+#             try:
+#                 an=Quizques.objects.filter(subject_name=s_id,question_no=q_no-1)
+#                 # print(an[0].ans,"ur choice:",a)
+#                 if ans==an[0].ans:
+#                     r_ans+=1
+#                 else:
+#                     w_ans+=1
+#             except:
+#                 return render(request,'quizz/result.html',{'score':r_ans,'total':tot_ques,'show_time':show_time})
 
     if(q_no<=tot_ques):
         print("from question")

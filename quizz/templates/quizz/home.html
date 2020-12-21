@@ -18,7 +18,17 @@
     </button>
     {%endfor%}
   </form>
+  <p>
+  <button class="btn btn-outline-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+    admin
+  </button>
+</p>
+<div class="collapse" id="collapseExample">
+  <div class="card card-body">
+    In url field add <strong>/admin</strong>to access admin panel <br>
 
+  </div>
+</div>
     {% else %}
     <div class="jumbotron" align='center'>
       <h3>Log in to continue!!</h3>
